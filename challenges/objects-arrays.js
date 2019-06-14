@@ -17,9 +17,7 @@
 let tyro = {name:'tyrannosaurus', diet:'carnivorous', weight:'7000kg', lengths:'12m', period:'Late Cretaceous'}
 let steg = {name: 'stegosaurus', diet: 'herbivorous', weight: '2000kg', lengths: '9m', period: 'Late Jurassic'}
 let velo = {name: 'velociraptor', diet: 'carnivorous', weight: '15kg', lengths: '1.8m', period: 'Late Cetaceous'}
-tyro.rawr =() => {
-  return 'RAWERSRARARWERSARARARRRR'
-}
+
 // How much did tyrannosaurus weigh?
 console.log(tyro.name);
 
@@ -34,6 +32,9 @@ console.log(tyro.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
+tyro.rawr =() => {
+  return console.log('RAWERSRARARWERSARARARRRR')
+}
 // console.log(tyro.rarw());
 
 
@@ -68,16 +69,14 @@ The resulting contact information should have a space between the first name and
 Name email@example.com
 
 Log the result of your new array. */
-// let contactInfo = [];
-// for (let i = 0; i < graduates.length; i++){
-//   contactInfo = graduates[i].map((name)=> {`${name.first_name} ${name.email}`})
-// console.log(contactInfo);
-// }
+let contactInfo = [];
+contactInfo = graduates.map((name) => `${name.animal_name} ${name.scientific_name}`)
+console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 let uni = [];
 for (let i = 0; i < graduates.length; i++){
-  if (graduates[i].university.indexOf('uni')){
+  if (graduates[i].university.includes('Uni')){
     uni.push(graduates[i].university)
   }
 }
@@ -105,7 +104,7 @@ zooAnimals = [{"animal_name":"Jackal, asiatic","population":5,"scientific_name":
 The zoo wants to display both the scientific name and the animal name in front of the habitats.  Return an array with only the animal and scientific names in it.  The individual values in the array should look like this "Name: Jackal, asiatic, Scientific: Canis aureus."
 */
 let animalNames = [];
-  animalNames = zooAnimals.map((name) => {`${name.animal_name} ${name.scientific_name}`})
+  animalNames = zooAnimals.map((name) => `${name.animal_name} ${name.scientific_name}`)
 console.log(animalNames);
 
 /* Request 2: .map()    
@@ -115,7 +114,7 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 */
 
 let lowerCase = [];
-  lowerCase = zooAnimals.map((name)=>{name.animal_name.toLowerCase()})
+  lowerCase = zooAnimals.map((name)=>name.animal_name.toLowerCase())
 console.log(lowerCase); 
 
 /* Request 3: .filter() 

@@ -7,7 +7,10 @@
   * In the body of the function return the callback with the two parameters that you created
 */
 function consume(param1, param2, cb){
-  cb(param1 && param2)
+  this.param1 = param1
+  this.param2 = param2
+  return cb(param1, param2)
+
 
 }
 
@@ -17,20 +20,22 @@ function consume(param1, param2, cb){
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 
-// consume(num1, num2, (add) => {
-//   return add(num1 , num2)
-// })
-
-function multiply(){}
-
-  consume(this.param1, this.param2, function greeting() {
-    return `Hello ${this.param1} ${this.param2}, nice to meet you!`
+  consume(this.param1, this.param2, add = () => {
+    return this.param1 + this.param2
   })
+  
+  consume(this.param1, this.param2, multiply = () => {
+    return this.param1 * this.param2
+  })
+  
+    consume(this.param1, this.param2, greeting = () => {
+      return `Hello ${this.param1} ${this.param2}, nice to meet you!`
+    })
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2,2,add)); // 4
+console.log(consume(10,16,multiply)); // 160
+console.log(consume("Mary","Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
