@@ -2,8 +2,8 @@
 class CuboidMaker{
     constructor(attrs){
     this.length = attrs.length
-    this.height = attrs.length
-    this.width = attrs.length
+    this.height = attrs.height
+    this.width = attrs.width
   }
 }
   
